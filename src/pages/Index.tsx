@@ -2,12 +2,14 @@ import { Sparkles, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TopicInput } from "@/components/TopicInput";
 import { PostPreview } from "@/components/PostPreview";
+import { GenerationProgress } from "@/components/GenerationProgress";
 import { usePostGeneration } from "@/hooks/usePostGeneration";
 
 const Index = () => {
   const { state, generateContent, reset } = usePostGeneration();
 
   const isLoading = state.status === "generating-content" || state.status === "generating-images";
+  const totalImages = state.post ? 1 + state.post.content.length : 0;
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -42,32 +44,35 @@ const Index = () => {
             <TopicInput onGenerate={generateContent} isLoading={isLoading} />
           )}
 
+          {/* Show progress when generating content (before post is ready) */}
+          {state.status === "generating-content" && !state.post && (
+            <GenerationProgress
+              status={state.status}
+              currentImageIndex={0}
+              totalImages={0}
+            />
+          )}
+
+          {/* Show progress and preview when post is ready */}
           {state.status !== "idle" && state.post && (
             <div className="space-y-8">
-              {/* Status Bar */}
+              {/* Progress Bar - show during generation */}
+              {isLoading && (
+                <GenerationProgress
+                  status={state.status}
+                  currentImageIndex={state.currentImageIndex}
+                  totalImages={totalImages}
+                />
+              )}
+
+              {/* Action Bar */}
               <div className="flex items-center justify-center gap-4">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary text-sm">
-                  {state.status === "generating-content" && (
-                    <>
-                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                      <span>正在生成內容...</span>
-                    </>
-                  )}
-                  {state.status === "generating-images" && (
-                    <>
-                      <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                      <span>
-                        正在生成圖片 ({state.currentImageIndex + 1}/{1 + state.post.content.length})
-                      </span>
-                    </>
-                  )}
-                  {state.status === "complete" && (
-                    <>
-                      <div className="w-2 h-2 rounded-full bg-green-500" />
-                      <span>生成完成！</span>
-                    </>
-                  )}
-                </div>
+                {state.status === "complete" && (
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500/10 text-green-500 text-sm font-medium">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span>🎉 生成完成！</span>
+                  </div>
+                )}
 
                 <Button
                   variant="glass"
