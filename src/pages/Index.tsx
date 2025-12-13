@@ -25,7 +25,7 @@ const Index = () => {
             AI 社群內容生成器
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold font-display mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
             <span className="gradient-text">一鍵生成爆款</span>
             <br />
             <span className="text-foreground">Instagram 圖文</span>
