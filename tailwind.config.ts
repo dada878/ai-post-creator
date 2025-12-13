@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ['Space Grotesk', 'sans-serif'],
         body: ['Noto Sans TC', 'sans-serif'],
+        pixel: ['Cubic 11', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
