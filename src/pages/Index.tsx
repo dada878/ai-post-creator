@@ -145,8 +145,6 @@ const Index = () => {
             </form>
           </div>
         </section>
-          </div>
-        </section>
 
         {/* Features Section */}
         <section id="features" className="container mx-auto px-4 py-24">
