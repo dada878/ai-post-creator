@@ -206,44 +206,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Example Showcase */}
-        <section className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              生成範例
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              看看 AI 能為你創造什麼
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              { topic: "咖啡廳經營秘訣", tag: "餐飲" },
-              { topic: "健身初學者指南", tag: "健康" },
-              { topic: "極簡生活哲學", tag: "生活風格" },
-            ].map((example, i) => (
-              <div key={i} className="glass-card rounded-2xl overflow-hidden group hover:border-primary/30 transition-all duration-300">
-                <div className="aspect-square bg-gradient-to-br from-primary/20 via-accent/10 to-secondary flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <p className="text-2xl font-bold gradient-text mb-2">{example.topic}</p>
-                    <span className="text-xs text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                      {example.tag}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <Link to={`/generate?topic=${encodeURIComponent(example.topic)}`}>
-                    <Button variant="ghost" size="sm" className="w-full group-hover:text-primary transition-colors">
-                      試試這個主題
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* FAQ Section */}
         <section className="container mx-auto px-4 py-24">
