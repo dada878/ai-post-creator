@@ -50,7 +50,7 @@ const Generate = () => {
         {/* Main Content */}
         <main className="space-y-12">
           {state.status === "idle" && (
-            <TopicInput onGenerate={generateContent} isLoading={isLoading} />
+            <TopicInput onGenerate={generateContent} isLoading={isLoading} initialTopic={initialTopic} />
           )}
 
           {state.status === "generating-content" && !state.post && (
