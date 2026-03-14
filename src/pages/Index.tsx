@@ -203,7 +203,7 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <Link to="/generate">
+                  <Link to={`/generate?topic=${encodeURIComponent(example.topic)}`}>
                     <Button variant="ghost" size="sm" className="w-full group-hover:text-primary transition-colors">
                       試試這個主題
                       <ArrowRight className="w-4 h-4" />
