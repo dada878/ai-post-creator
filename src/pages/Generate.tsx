@@ -4,9 +4,11 @@ import { TopicInput } from "@/components/TopicInput";
 import { PostPreview } from "@/components/PostPreview";
 import { GenerationProgress } from "@/components/GenerationProgress";
 import { usePostGeneration } from "@/hooks/usePostGeneration";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Generate = () => {
+  const [searchParams] = useSearchParams();
+  const initialTopic = searchParams.get("topic") || "";
   const { state, generateContent, reset } = usePostGeneration();
 
   const isLoading = state.status === "generating-content" || state.status === "generating-images";

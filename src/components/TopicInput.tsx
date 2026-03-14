@@ -7,10 +7,11 @@ import { Input } from "@/components/ui/input";
 interface TopicInputProps {
   onGenerate: (topic: string, direction: string) => void;
   isLoading: boolean;
+  initialTopic?: string;
 }
 
-export const TopicInput = ({ onGenerate, isLoading }: TopicInputProps) => {
-  const [topic, setTopic] = useState("");
+export const TopicInput = ({ onGenerate, isLoading, initialTopic = "" }: TopicInputProps) => {
+  const [topic, setTopic] = useState(initialTopic);
   const [direction, setDirection] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
