@@ -71,8 +71,8 @@ const Generate = () => {
 
               <div className="flex items-center justify-center gap-4">
                 {state.status === "complete" && (
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-green-500/10 text-green-500 text-sm font-medium">
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary text-sm font-medium">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
                     <span>🎉 生成完成！</span>
                   </div>
                 )}
