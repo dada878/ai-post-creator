@@ -33,7 +33,9 @@ Text to display prominently: "${text}"
 
 Style: Modern, eye-catching Instagram carousel cover. Use bold typography, vibrant colors, and professional design. The image should be square format (1:1 ratio) suitable for Instagram. Make the text highly readable and the design compelling enough to make users want to swipe.
 
-Important: Include the main headline text "${text}" as part of the image design. Use Chinese characters if the text is in Chinese.`;
+Important: Include the main headline text "${text}" as part of the image design. Use Chinese characters if the text is in Chinese.
+
+CRITICAL RULE: Do NOT include any emoji characters anywhere in the image. If decorative symbols are needed, use clean vector-style icons or simple geometric shapes instead. Absolutely no emoji.`;
     } else {
       // Content slide generation - maintain style consistency
       prompt = `Create an Instagram carousel content slide that maintains visual consistency with the series.
