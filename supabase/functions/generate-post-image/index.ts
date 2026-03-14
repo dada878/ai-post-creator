@@ -49,7 +49,9 @@ Overall theme: ${overallTheme || 'Professional social media content'}
 
 Style: This is part of an Instagram carousel series. Maintain consistent visual style with warm, professional tones. The image should be square format (1:1 ratio). Include the content text as part of the design. Use modern, clean layouts with good typography.
 
-Important: Make the text "${text}" readable and well-integrated into the design. Use Chinese characters if the text is in Chinese.`;
+Important: Make the text "${text}" readable and well-integrated into the design. Use Chinese characters if the text is in Chinese.
+
+CRITICAL RULE: Do NOT include any emoji characters anywhere in the image. If decorative symbols are needed, use clean vector-style icons or simple geometric shapes instead. Absolutely no emoji.`;
     }
 
     const requestBody: any = {
