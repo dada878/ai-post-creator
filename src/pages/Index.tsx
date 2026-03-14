@@ -71,6 +71,16 @@ const faqs = [
 ];
 
 const Index = () => {
+  const [heroTopic, setHeroTopic] = useState("");
+  const navigate = useNavigate();
+
+  const handleHeroSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (heroTopic.trim()) {
+      navigate(`/generate?topic=${encodeURIComponent(heroTopic.trim())}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Background Effects */}
@@ -98,21 +108,43 @@ const Index = () => {
               從構思到發佈，只需要一個步驟。
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Link to="/generate">
-                <Button variant="gradient" size="xl" className="min-w-[200px]">
-                  <Sparkles className="w-5 h-5" />
-                  免費開始生成
-                  <ArrowRight className="w-5 h-5" />
+            {/* Hero Input Bar */}
+            <form onSubmit={handleHeroSubmit} className="max-w-2xl mx-auto pt-4">
+              <div className="glass-card rounded-2xl p-2 flex items-center gap-2">
+                <input
+                  type="text"
+                  value={heroTopic}
+                  onChange={(e) => setHeroTopic(e.target.value)}
+                  placeholder="輸入你想生成的主題，例如：咖啡廳經營秘訣..."
+                  className="flex-1 bg-transparent border-none outline-none px-4 py-3 text-foreground placeholder:text-muted-foreground text-base"
+                />
+                <Button
+                  type="submit"
+                  variant="gradient"
+                  size="lg"
+                  disabled={!heroTopic.trim()}
+                  className="shrink-0"
+                >
+                  <Send className="w-4 h-4" />
+                  開始生成
                 </Button>
-              </Link>
-              <a href="#features">
-                <Button variant="glass" size="lg">
-                  了解更多
-                  <ChevronDown className="w-4 h-4" />
-                </Button>
-              </a>
-            </div>
+              </div>
+              <div className="flex items-center justify-center gap-3 mt-4 text-sm text-muted-foreground">
+                <span>熱門：</span>
+                {["咖啡廳經營", "健身指南", "極簡生活"].map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => setHeroTopic(tag)}
+                    className="px-3 py-1 rounded-full bg-secondary hover:bg-secondary/80 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </form>
+          </div>
+        </section>
           </div>
         </section>
 
